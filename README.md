@@ -14,5 +14,12 @@ Although my project can be played by anyone, my main target audience are:
 
 I chose to make a sandwich simulator game for my project since I have always enjoyed playing restaurant simulation games when I was little. In fact, even now, I still enjoy a lot of restaurant simulator games such as **Overcooked 2**. Consequently, I want to make my project around the idea of restaurant simulator games out of passion and my life for the genre.  
 
+## User Stories    
+
+
+- As a user, I want to be able to add ingredients to a sandwich.  
+- As a user, I want to be able to view a list of all ingredients in the current sandwich I am making.  
+- As a user, I want to be able to add raw ingredients to my inventory before the game starts.  
+- As a user, I want to be able to have the amount of my in-game currency to increase and decrease depending on my actions.  
 
 
