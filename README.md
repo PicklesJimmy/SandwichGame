@@ -19,7 +19,7 @@ I chose to make a sandwich simulator game for my project since I have always enj
 
 - As a user, I want to be able to add ingredients to a sandwich.  
 - As a user, I want to be able to view a list of all ingredients in the current sandwich I am making.  
-- As a user, I want to be able to add raw ingredients to my inventory before the game starts.  
-- As a user, I want to be able to have the amount of my in-game currency to increase and decrease depending on my actions.  
+- As a user, I want to be able to have a 60 seconds timer that counts down to the game ending.  
+- As a user, I want to be able to submit my current sandwich to the customer and have it check if my sandwich matches with the customer's order.  
 
 
