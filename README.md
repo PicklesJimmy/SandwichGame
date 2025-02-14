@@ -2,7 +2,7 @@
 
 ## Project Description - What is my Project?    
 
-Hello and welcome to my Sandwich Maker Game. This project will be about a game where you work as an employee at a sandwich restaurant. The gameplay will involve the player first buying a set amount of ingredients for the sandwiches before they open shop. Afterwards, they are tasked with serving 5 customers with their sandwiches of desire. If they are able to serve the 5 customers with the ingredients they bought, then they are able to proceed into the next day and continue the game. However, if they are unable to server all 5 costumers, they will get fired from their job and lose the game as a result.  
+Hello and welcome to my Sandwich Maker Game. This project will be about a game where you work as an employee at a sandwich restaurant. The gameplay will involve the player being tasked with serving 5 customers with their sandwiches of desire. If they are able to serve each customer within a 60 second timer, then they are able to proceed into the next day and continue the game. However, if the timer runs out of time, or if the player serves the wrong sandwich, they will get fired from their job and lose the game as a result.  
 
 ## Project Description - Who Will Use my Project?  
 
