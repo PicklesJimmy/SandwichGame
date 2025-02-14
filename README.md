@@ -2,7 +2,7 @@
 
 ## Project Description - What is my Project?    
 
-Hello and welcome to my Sandwich Maker Game. This project will be about a game where you work as an employee at a sandwich restaurant. The gameplay will involve the player being tasked with serving 5 customers with their sandwiches of desire. If they are able to serve each customer within a 60 second timer, then they are able to proceed into the next day and continue the game. However, if the timer runs out of time, or if the player serves the wrong sandwich, they will get fired from their job and lose the game as a result.  
+Hello and welcome to my Sandwich Maker Game. This project will be about a game where you work as an employee at a sandwich restaurant. The gameplay will involve the player being tasked with serving customers with their sandwiches of desire. If they are able to serve the customers with the correct order, then they are able to proceed into the next day and continue the game. However, if the player serves the wrong sandwich, they will get fired from their job and lose the game as a result.  
 
 ## Project Description - Who Will Use my Project?  
 
@@ -19,7 +19,7 @@ I chose to make a sandwich simulator game for my project since I have always enj
 
 - As a user, I want to be able to add ingredients to a sandwich.  
 - As a user, I want to be able to view a list of all ingredients in the current sandwich I am making.  
-- As a user, I want to be able to have a 60 seconds timer that counts down to the game ending.  
+- As a user, I want to be able to select the level of doneness for the bacon ingredients.  
 - As a user, I want to be able to submit my current sandwich to the customer and have it check if my sandwich matches with the customer's order.  
 
 
