@@ -10,24 +10,30 @@ public class Sandwich {
 
     // EFFECTS: constructs an empty list of ingredients.
     public Sandwich() {
-        // stub
+        ingredientsList = new ArrayList<>();
     }
 
     // MODIFIES: this
     // EFFECTS: add the ingredient to the list of ingredients
     public void addIngredient(Ingredients ingredient) {
-        // stub
+        ingredientsList.add(ingredient);
     }
 
-    // EFFECTS: return the list of ingredients 
+    // EFFECTS: return the list of ingredients,
     public List<Ingredients> viewIngredients() {
-        return null; // stub
+        return ingredientsList;
     }
 
     // MODIFIES: this
-    // EFFECTS: remove the last ingredient added from the list of ingredients, return null if list is empty
-    public void removeIngredients(List<Ingredients> list) {
-        // stub
+    // EFFECTS: remove the last ingredient added from the sandwich and return true, return false if list is empty
+    public boolean removeIngredients() {
+        int last = ingredientsList.size() -1;
+        if (ingredientsList.isEmpty()) {
+            return false;
+        } else {
+            ingredientsList.remove(last);
+            return true;
+        }
     } 
 
 
