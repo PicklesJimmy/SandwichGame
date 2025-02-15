@@ -7,8 +7,6 @@ import java.util.ArrayList;
  and the type of bread used for the sandwich. */ 
 public class Sandwich {
     private List<Ingredients> ingredientsList;
-    private Ingredients bread;
-
 
     // EFFECTS: constructs an empty list of ingredients.
     public Sandwich() {
@@ -21,20 +19,16 @@ public class Sandwich {
         // stub
     }
 
-    // MODIFIES: this
-    // EFFECTS: set the bread of sandwich to the specified bread
-    public void setBread(Ingredients bread) {
-        // stub
-    }
-    
-
     // EFFECTS: return the list of ingredients 
     public List<Ingredients> viewIngredients() {
         return null; // stub
     }
 
-    // EFFECTS: return the bread used for the sandwich 
-    public Ingredients viewBread() {
-        return null; // stub
-    }
+    // MODIFIES: this
+    // EFFECTS: remove the last ingredient added from the list of ingredients, return null if list is empty
+    public void removeIngredients(List<Ingredients> list) {
+        // stub
+    } 
+
+
 }
