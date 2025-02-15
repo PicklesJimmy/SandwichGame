@@ -3,6 +3,8 @@ package model;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 
 
 import org.junit.jupiter.api.BeforeEach;
@@ -36,6 +38,28 @@ public class TestSandwich {
     @Test
     void testRemoveIngredientEmptyList() {
         assertFalse(testSand.removeIngredients());
+
+    }
+
+    @Test
+    void testViewIngredientsEmpty() {
+        assertTrue(testSand.viewIngredients().isEmpty());
+    }
+
+    @Test
+    void testViewIngredients() {
+        testSand.addIngredient(testB);
+        testSand.addIngredient(testP);
+        assertEquals(testSand.viewIngredients().size(), 2);
+        assertEquals(testSand.viewIngredients().get(0), testB);
+        assertEquals(testSand.viewIngredients().get(1), testP);
+        testSand.addIngredient(testP);
+        assertEquals(testSand.viewIngredients().get(2), testP);
+        assertEquals(testSand.viewIngredients().size(), 3);
+
+
+
+
 
     }
 
