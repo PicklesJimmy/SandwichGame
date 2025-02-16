@@ -3,7 +3,6 @@ package model;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 
 
@@ -12,14 +11,14 @@ import org.junit.jupiter.api.Test;
 
 public class TestSandwich {
     private Sandwich testSand;
-    private Ingredients testB;
-    private Ingredients testP;
+    private Bacon testB;
+    private Pickle testP;
 
     @BeforeEach
     void runBefore() {
         testSand = new Sandwich();
-        testB = new Ingredients("Bacon");
-        testP = new Ingredients("Pickle");
+        testB = new Bacon("Bacon");
+        testP = new Pickle("Pickle");
     }
 
     @Test
