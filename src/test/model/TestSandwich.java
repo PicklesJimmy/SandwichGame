@@ -17,8 +17,8 @@ public class TestSandwich {
     @BeforeEach
     void runBefore() {
         testSand = new Sandwich();
-        testB = new Bacon("Bacon");
-        testP = new Pickle("Pickle");
+        testB = new Bacon(1);
+        testP = new Pickle(1);
     }
 
     @Test
