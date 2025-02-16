@@ -30,7 +30,7 @@ public class Sandwich {
         if (ingredientsList.isEmpty()) {
             return false;
         } else {
-            int last = ingredientsList.size() -1;
+            int last = ingredientsList.size() - 1;
             ingredientsList.remove(last);
             return true;
         }

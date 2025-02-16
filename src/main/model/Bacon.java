@@ -1,6 +1,6 @@
 package model;
 
-public class Bacon extends Ingredients{
+public class Bacon extends Ingredients {
 
     // REQUIRES: 1<= input <= 2 
     // MODIFIES: this
@@ -17,7 +17,8 @@ public class Bacon extends Ingredients{
     protected void setQuality(int val) {
         if (val == 1) {
             quality = "raw";
-        } if (val == 2) {
+        } 
+        if (val == 2) {
             quality = "cooked";
         }     
     }    

@@ -18,7 +18,8 @@ public class Ingredients {
     protected void setQuality(int val) {
         if (val == 1) {
             quality = "uncooked";
-        } if (val == 2) {
+        } 
+        if (val == 2) {
             quality = "cooked";
         } 
     }

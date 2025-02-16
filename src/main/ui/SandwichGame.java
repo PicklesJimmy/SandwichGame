@@ -112,7 +112,7 @@ public class SandwichGame {
     public void addPickle() {
 
         System.out.println("\nShould this pickle be dill(enter 1), or sweet(enter 2):");
-        int pickleProperty= this.scanner.nextInt();
+        int pickleProperty = this.scanner.nextInt();
         scanner.nextLine();
         
         if (pickleProperty == 1) {
@@ -146,7 +146,7 @@ public class SandwichGame {
         if (sandwich.viewIngredients().isEmpty()) {
             System.out.println("This sandwich is empty! No ingredient to remove!");
         } else {
-            int last = ingredList.size() -1;
+            int last = ingredList.size() - 1;
             String removed = ingredList.get(last);
             System.out.println("This " + removed + " will be removed from the sandwich!");
             sandwich.removeIngredients();
