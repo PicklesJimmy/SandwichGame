@@ -2,9 +2,12 @@ package model;
 
 public class Pickle extends Ingredients{
 
-    // EFFECTS: constructs a Pickle object with a given name, and a quality of null.
-    public Pickle(String name) {
-        super(name);
+    // REQUIRES: 1<= input <= 2 
+    // MODIFIES: this
+    // EFFECTS: constructs a Pickle object with  with a given quality between 1(raw) and 2(cooked).
+    public Pickle(int input) {
+        super(input);
+        setQuality(input);
     }
 
     // REQUIRES: 1<= val <= 2 
