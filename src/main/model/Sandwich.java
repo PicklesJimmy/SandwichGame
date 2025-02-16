@@ -27,10 +27,10 @@ public class Sandwich {
     // MODIFIES: this
     // EFFECTS: remove the last ingredient added from the sandwich and return true, return false if list is empty
     public boolean removeIngredients() {
-        int last = ingredientsList.size() -1;
         if (ingredientsList.isEmpty()) {
             return false;
         } else {
+            int last = ingredientsList.size() -1;
             ingredientsList.remove(last);
             return true;
         }
