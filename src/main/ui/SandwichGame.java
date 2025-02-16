@@ -14,57 +14,153 @@ import java.util.Scanner;
 // A sandwich game that allows the player to make and serve sandwiches to customers
 public class SandwichGame {
 
-   
+    private Sandwich sandwich;
+    List<String> ingredList;
+
+    private Scanner scanner;
+    private boolean programRunning;
+
     // EFFECTS: Creates an instance of the sandwich game in the terminal console
+    // Attribution: code structure based on the Flashcards lab
     public SandwichGame() {
-       // stub
+        inital();
+
+        while (this.programRunning) {
+            mainGameMenu();
+        }
+
     }
 
     // MODIFIES: this
     // EFFECTS: initializes the game with the starting values
+    // Attribution: code structure based on the Flashcards lab
     public void inital() {
-        // stub
+        this.scanner = new Scanner(System.in);
+        this.programRunning = true;
+
+        sandwich = new Sandwich();
+        ingredList = new ArrayList<>();
     }
 
-     // EFFECTS: displays and checks the user's inputs for the main game menu.
-     public void mainGameMenu() {
-       // stub
+    // EFFECTS: displays and checks the user's inputs for the main game menu.
+    // Attribution: code structure based on the Flashcards lab
+    public void mainGameMenu() {
+        System.out.println("Please select an option:\n");
+        System.out.println("b: Add a bacon");
+        System.out.println("p: Add a pickle");
+        System.out.println("s: View all ingredients in the sandwich");
+        System.out.println("r: Remove the most recently added ingredient from the sandwich");
+        System.out.println("q: Exit the game");
+        System.out.println("---------------------------------------------------------------");
 
-     }
+        String input = this.scanner.nextLine();
+        processInput(input);
+
+    }
 
     // EFFECTS: processes the user's input in the game 
+    // Attribution: code structure based on the Flashcards lab
     public void processInput(String input) {
-       // stub
+        System.out.println("---------------------------------------------------------------");
+        switch (input) {
+            case "b":
+                addBacon();
+                break;
+            case "p":
+                addPickle();
+                break;
+            case "s":
+                viewSandwich();
+                break;
+            case "r":
+                removeIngredient();
+                break;
+            case "q":
+                exitGame();
+                break;
+            default:
+                System.out.println("This input is invalid. Please try again.");
+        }
+        System.out.println("---------------------------------------------------------------");
+
     }
 
     // MODIFIES: this
     // EFFECTS: adds a new bacon to the sandwich
     public void addBacon() {
-        // stub
+
+        System.out.println("\nShould this bacon be raw(enter 1), or cooked(enter 2):");
+        int baconProperty = this.scanner.nextInt();
+        scanner.nextLine();
+        
+        if (baconProperty == 1) {
+            Bacon bacon = new Bacon(baconProperty);
+            this.sandwich.addIngredient(bacon);
+            ingredList.add("Raw Bacon");
+            System.out.println("\nA raw bacon is added to the sandwich!");
+        } else if (baconProperty == 2) {
+            Bacon bacon = new Bacon(baconProperty);            
+            this.sandwich.addIngredient(bacon);
+            ingredList.add("Cooked Bacon");
+            System.out.println("\nA cooked bacon is added to the sandwich!");
+        } else {
+            System.out.println(baconProperty + "\n is not a valid input, this bacon will not be added, try again.");
+        }
     }
 
     // MODIFIES: this
     // EFFECTS: adds a new pickle to the sandwich
     public void addPickle() {
-        // stub
+
+        System.out.println("\nShould this pickle be dill(enter 1), or sweet(enter 2):");
+        int pickleProperty= this.scanner.nextInt();
+        scanner.nextLine();
+        
+        if (pickleProperty == 1) {
+            Pickle pickle = new Pickle(pickleProperty);
+            this.sandwich.addIngredient(pickle);
+            ingredList.add("Dill Pickle");
+            System.out.println("\nA dill pickle is added to the sandwich!");
+        } else if (pickleProperty == 2) {
+            Pickle pickle = new Pickle(pickleProperty);            
+            this.sandwich.addIngredient(pickle);
+            ingredList.add("Sweet Pickle");
+            System.out.println("\nA sweet pickle is added to the sandwich!");
+        } else {
+            System.out.println(pickleProperty + "\n is not a valid input, this pickle will be discarded, try again.");
+        }
     }
 
     // MODIFIES: this
     // EFFECTS: displays all the ingredients inside the sandwich
     public void viewSandwich() {
-       // stub
+        if (ingredList.isEmpty()) {
+            System.out.println("The sandwich is empty:( !");
+        } else {
+            System.out.println("Here are the ingredients currently in the sandwich: \na" + ingredList);
+        }
     }
      
     // MODIFIES: this
-    // EFFECTS: the last ingredient added from the sandwich
+    // EFFECTS: remove the last ingredient added from the sandwich, print a message if there is no ingredients
     public void removeIngredient() {
-        // stub
+        if (sandwich.viewIngredients().isEmpty()) {
+            System.out.println("This sandwich is empty! No ingredient to remove!");
+        } else {
+            int last = ingredList.size() -1;
+            String removed = ingredList.get(last);
+            System.out.println("This " + removed + " will be removed from the sandwich!");
+            sandwich.removeIngredients();
+            ingredList.remove(last);
+        }
     }
 
     // MODIFIES: this
     // EFFECTS: Prints a message to tell the user that the game has stopped and stops the game from running
+    // Attribution: this code structure is based on the Flashcards lab
     public void exitGame() {
-        // stub
+        System.out.println("The game has ended!");
+        this.programRunning = false;
     }
 
 
