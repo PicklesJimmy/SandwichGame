@@ -1,8 +1,6 @@
 package model;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 
@@ -13,20 +11,25 @@ public class TestIngredient {
     private Bacon testB;
     private Pickle testP;
     private Ingredients testI;
+    private Bacon testNull1;
+    private Pickle testNull2;
 
     @BeforeEach
     void runBefore() {
-        testB = new Bacon("Bacon");
-        testP = new Pickle("Pickle");
-        testI = new Ingredients("Ingredient");
+        testB = new Bacon(1);
+        testP = new Pickle(1);
+        testI = new Ingredients(1);
+        testNull1 = new Bacon(3);
+        testNull2 = new Pickle(3);
+
     }
 
     @Test
     void testConstructor() {
-        assertNull(testB.getQuality());
-        assertNull(testP.getQuality());
-        assertEquals(testB.getName(), "Bacon");
-        assertEquals(testP.getName(), "Pickle");
+        assertNull(testNull1.getQuality());
+        assertNull(testNull2.getQuality());
+        assertEquals(testB.getQuality(), "raw");
+        assertEquals(testP.getQuality(), "dill");
     }
 
     @Test
