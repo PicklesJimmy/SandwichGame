@@ -1,7 +1,6 @@
 package ui;
 
 import model.Bacon;
-import model.Ingredients;
 import model.Pickle;
 import model.Sandwich;
 
