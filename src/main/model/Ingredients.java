@@ -11,17 +11,17 @@ public class Ingredients {
         setQuality(input);
     }
 
-    // REQUIRES: 1<= val <= 2 
     // MODIFIES: this
     // EFFECTS: sets the quality of ingredient to "uncooked"(1) or "cooked"(2) 
     // depending on the value the player entered. Else, the quality is set to null.
     protected void setQuality(int val) {
         if (val == 1) {
             quality = "uncooked";
-        } 
-        if (val == 2) {
+        } else if (val == 2) {
             quality = "cooked";
-        } 
+        } else {
+            quality = null;
+        }
     }
         
     
