@@ -14,17 +14,12 @@ public class Pickle extends Ingredients {
     // EFFECTS: sets the quality of Pickle to "dill"(1) or "sweet"(2) depending on the value the player entered.     
     @Override
     protected void setQuality(int val) {
-        for (int validVal : validList) {
-            if (val == validVal) {
-                if (val == 1) {
-                    quality = "dill";
-                } 
-                if (val == 2) {
-                    quality = "sweet";
-                }
-                return;
-            }
+        if (val == 1) {
+            quality = "dill";
+        } else if (val == 2) {
+            quality = "sweet";
+        } else {
+            quality = null;
         }
-        quality = null;
     }
 }

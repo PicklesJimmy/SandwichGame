@@ -14,17 +14,12 @@ public class Bacon extends Ingredients {
     // EFFECTS: sets the quality of Bacon to "raw"(1) or "cooked"(2) depending on the value the player entered.   
     @Override
     protected void setQuality(int val) {
-        for (int validVal : validList) {
-            if (val == validVal) {
-                if (val == 1) {
-                    quality = "raw";
-                } 
-                if (val == 2) {
-                    quality = "cooked";
-                }
-                return;
-            }
+        if (val == 1) {
+            quality = "raw";
+        } else if (val == 2) {
+            quality = "cooked";
+        } else {
+            quality = null;
         }
-        quality = null;
     }    
 }
