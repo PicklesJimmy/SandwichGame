@@ -13,12 +13,18 @@ public class TestIngredient {
     private Ingredients testI;
     private Bacon testNull1;
     private Pickle testNull2;
+    private Bacon testB2;
+    private Pickle testP2;
+    private Ingredients testI2;
 
     @BeforeEach
     void runBefore() {
         testB = new Bacon(1);
         testP = new Pickle(1);
         testI = new Ingredients(1);
+        testB2 = new Bacon(2);
+        testP2 = new Pickle(2);
+        testI2 = new Ingredients(2);
         testNull1 = new Bacon(3);
         testNull2 = new Pickle(3);
 
@@ -44,7 +50,7 @@ public class TestIngredient {
         testB.setQuality(2);
         testB.setQuality(2);
         assertEquals(testB.getQuality(), "cooked");
-
+        assertEquals(testB2.getQuality(), "cooked");
     }
 
     @Test
@@ -56,6 +62,8 @@ public class TestIngredient {
         testP.setQuality(2);
         testP.setQuality(2);
         assertEquals(testP.getQuality(), "sweet");
+        assertEquals(testP2.getQuality(), "sweet");
+
 
     }
 
@@ -73,5 +81,7 @@ public class TestIngredient {
         assertEquals(testI.getQuality(), "cooked");
         testI.setQuality(3);
         assertNull(testI.getQuality());
+        assertEquals(testI2.getQuality(), "cooked");
+
     }
 }
