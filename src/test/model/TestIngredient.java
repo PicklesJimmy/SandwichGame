@@ -71,5 +71,7 @@ public class TestIngredient {
         testI.setQuality(2);
         testI.setQuality(2);
         assertEquals(testI.getQuality(), "cooked");
+        testI.setQuality(3);
+        assertNull(testI.getQuality());
     }
 }
