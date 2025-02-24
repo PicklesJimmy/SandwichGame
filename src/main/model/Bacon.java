@@ -1,5 +1,7 @@
 package model;
 
+
+/*  Represents a single bacon that have a certain quality attached to them */ 
 public class Bacon extends Ingredients {
 
     // REQUIRES: 1<= input <= 2 

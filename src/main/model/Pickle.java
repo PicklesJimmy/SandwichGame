@@ -1,5 +1,6 @@
 package model;
 
+/*  Represents a single pickle that have a certain quality attached to them */ 
 public class Pickle extends Ingredients {
 
     // REQUIRES: 1<= input <= 2 
