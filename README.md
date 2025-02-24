@@ -23,5 +23,6 @@ I chose to make a sandwich simulator game for my project since I have always enj
 - As a user, I want to be able to select the properties for different ingredients.  
 - As a user, I want to be able to remove an ingredient from a sandwich.  
 - As a user, I want to be able to submit my current sandwich to the customer and have it check if my sandwich matches with the customer's order.  
-
+- As a user, I want to be able to save my current sandwich to file (if I so choose).  
+- As a user, I want to be able to load my current sandwich from file (if I so choose).  
 
