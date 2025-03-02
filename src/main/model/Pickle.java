@@ -32,7 +32,7 @@ public class Pickle extends Ingredients {
 
     // EFFECTS: returns the name of the pickle.  
     public String getName() {
-        return null; // stub
+        return name;
     }
     
     // EFFECTS: returns the Pickle as JSON object

@@ -34,7 +34,7 @@ public class Ingredients implements Writable {
 
     // EFFECTS: returns the name of the ingredient.  
     public String getName() {
-        return null; // stub
+        return name;
     }
         
 

@@ -32,7 +32,7 @@ public class Bacon extends Ingredients {
 
     // EFFECTS: returns the name of the Bacon.  
     public String getName() {
-        return null; // stub
+        return name; 
     }
     
     // EFFECTS: returns the Bacon as JSON object
