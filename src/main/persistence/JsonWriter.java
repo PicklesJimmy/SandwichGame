@@ -15,7 +15,7 @@ public class JsonWriter {
     // EFFECTS: constructs writer to write to destination file
     // Attribution: this code structure is based on the JsonSerializationDemo
     public JsonWriter(String destination) {
-        // stub
+        this.destination = destination;
     }
 
     // MODIFIES: this
@@ -23,27 +23,28 @@ public class JsonWriter {
     // be opened for writing
     // Attribution: this code structure is based on the JsonSerializationDemo
     public void open() throws FileNotFoundException {
-        // stub
+        writer = new PrintWriter(new File(destination));
     }
 
     // MODIFIES: this
     // EFFECTS: writes JSON representation of sandwich to file
     // Attribution: this code structure is based on the JsonSerializationDemo
     public void write(Sandwich sd) {
-        // stub
+        JSONObject json = sd.toJson();
+        saveToFile(json.toString(TAB));
     }
 
     // MODIFIES: this
     // EFFECTS: closes writer
     // Attribution: this code structure is based on the JsonSerializationDemo
     public void close() {
-        // stub
+        writer.close();
     }
 
     // MODIFIES: this
     // EFFECTS: writes string to file
     // Attribution: this code structure is based on the JsonSerializationDemo
     private void saveToFile(String json) {
-        // stub
+        writer.print(json);
     }
 }
