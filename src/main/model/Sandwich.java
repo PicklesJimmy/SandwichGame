@@ -40,6 +40,7 @@ public class Sandwich implements Writable {
     } 
     
     // EFFECTS: returns the Sandwich as JSON object
+    // Attribution: this code structure is based on the JsonSerializationDemo
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -48,6 +49,7 @@ public class Sandwich implements Writable {
     }
 
     // EFFECTS: returns ingredients in this sandwich as a JSON array
+    // Attribution: this code structure is based on the JsonSerializationDemo
     private JSONArray ingredToJson() {
         JSONArray jsonArray = new JSONArray();
 

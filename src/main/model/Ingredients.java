@@ -48,6 +48,7 @@ public class Ingredients implements Writable {
     }
 
     // EFFECTS: returns the Ingredient as JSON object
+    // Attribution: this code structure is based on the JsonSerializationDemo
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

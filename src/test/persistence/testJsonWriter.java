@@ -12,7 +12,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class testJsonWriter extends JsonTest {
+class TestJsonWriter extends JsonTest {
     private Bacon testB = new Bacon(1);
     private Pickle testP = new Pickle(2);
     private Ingredients testI = new Ingredients(1);
