@@ -175,14 +175,29 @@ public class SandwichGame {
     // EFFECTS: saves the workroom to file
     // Attribution: this code structure is based on the JsonSerializationDemo
     private void saveSandwich() {
-        // stub
+        try {
+            jsonWriter.open();
+            jsonWriter.write(sandwich);
+            jsonWriter.close();
+            System.out.println("Saved current sandwich to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
     }
     
     // MODIFIES: this
     // EFFECTS: loads sandwich from file
     // Attribution: this code structure is based on the JsonSerializationDemo
     private void loadSandwich() {
-        // stub
-
-
+        try {
+            sandwich = jsonReader.read();
+            for (Ingredients i : sandwich.viewIngredients()) {
+                String ing = i.getQuality() + " " + i.getName();
+                ingredList.add(ing);
+            }
+            System.out.println("Loaded sandwich from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }        
+    }
 }
