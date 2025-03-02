@@ -1,14 +1,20 @@
 package model;
 
-/*  Represents a single pickle that have a certain quality attached to them */ 
+import org.json.JSONObject;
+
+/*  Represents a single pickle that have a certain quality and name attached to them */ 
 public class Pickle extends Ingredients {
+    private String name;
+    private Integer input;
 
     // REQUIRES: 1<= input <= 2 
     // MODIFIES: this
-    // EFFECTS: constructs a Pickle object with  with a given quality between 1(raw) and 2(cooked).
+    // EFFECTS: constructs a Pickle object with  with a given quality between 1(raw) and 2(cooked) and a name.
     public Pickle(int input) {
         super(input);
+        this.input = input;
         setQuality(input);
+        name = "Pickle";
     }
 
     // MODIFIES: this
@@ -16,11 +22,25 @@ public class Pickle extends Ingredients {
     @Override
     protected void setQuality(int val) {
         if (val == 1) {
-            quality = "dill";
+            quality = "Dill";
         } else if (val == 2) {
-            quality = "sweet";
+            quality = "Sweet";
         } else {
             quality = null;
         }
+    }
+
+    // EFFECTS: returns the name of the pickle.  
+    public String getName() {
+        return null; // stub
+    }
+    
+    // EFFECTS: returns the Pickle as JSON object
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("quality", input);
+        return json;
     }
 }
