@@ -1,13 +1,16 @@
 package ui;
 
 import model.Bacon;
+import model.Ingredients;
 import model.Pickle;
 import model.Sandwich;
+import persistence.*;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 
 // A sandwich game that allows the player to make and serve sandwiches to customers
@@ -18,6 +21,10 @@ public class SandwichGame {
 
     private Scanner scanner;
     private boolean programRunning;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
+    private static final String JSON_STORE = "./data/Sandwich.json";
+
 
     // EFFECTS: Creates an instance of the sandwich game in the terminal console
     // Attribution: code structure based on the Flashcards lab
@@ -39,6 +46,8 @@ public class SandwichGame {
 
         sandwich = new Sandwich();
         ingredList = new ArrayList<>();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
     }
 
     // EFFECTS: displays and checks the user's inputs for the main game menu.
@@ -47,8 +56,10 @@ public class SandwichGame {
         System.out.println("Please select an option:\n");
         System.out.println("b: Add a bacon");
         System.out.println("p: Add a pickle");
-        System.out.println("s: View all ingredients in the sandwich");
+        System.out.println("v: View all ingredients in the sandwich");
         System.out.println("r: Remove the most recently added ingredient from the sandwich");
+        System.out.println("s: Save the current sandwich I am working on");
+        System.out.println("l: Load the sandwich that I saved");
         System.out.println("q: Exit the game");
         System.out.println("---------------------------------------------------------------");
 
@@ -62,20 +73,19 @@ public class SandwichGame {
     public void processInput(String input) {
         System.out.println("---------------------------------------------------------------");
         switch (input) {
-            case "b":
-                addBacon();
+            case "b": addBacon();
                 break;
-            case "p":
-                addPickle();
+            case "p": addPickle();
                 break;
-            case "s":
-                viewSandwich();
+            case "v": viewSandwich();
                 break;
-            case "r":
-                removeIngredient();
+            case "r": removeIngredient();
                 break;
-            case "q":
-                exitGame();
+            case "s": saveSandwich();
+                break;
+            case "l": loadSandwich();
+                break;
+            case "q": exitGame();
                 break;
             default:
                 System.out.println("This input is invalid. Please try again.");
@@ -133,7 +143,7 @@ public class SandwichGame {
     // MODIFIES: this
     // EFFECTS: displays all the ingredients inside the sandwich
     public void viewSandwich() {
-        if (ingredList.isEmpty()) {
+        if (sandwich.viewIngredients().isEmpty() && ingredList.isEmpty()) {
             System.out.println("The sandwich is empty:( !");
         } else {
             System.out.println("Here are the ingredients currently in the sandwich: \na" + ingredList);
@@ -161,6 +171,18 @@ public class SandwichGame {
         System.out.println("The game has ended!");
         this.programRunning = false;
     }
+
+    // EFFECTS: saves the workroom to file
+    // Attribution: this code structure is based on the JsonSerializationDemo
+    private void saveSandwich() {
+        // stub
+    }
+    
+    // MODIFIES: this
+    // EFFECTS: loads sandwich from file
+    // Attribution: this code structure is based on the JsonSerializationDemo
+    private void loadSandwich() {
+        // stub
 
 
 }
