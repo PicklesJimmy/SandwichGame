@@ -1,0 +1,18 @@
+{"Ingredients": [
+    {
+        "name": "Bacon",
+        "quality": 2
+    },
+    {
+        "name": "Pickle",
+        "quality": 2
+    },
+    {
+        "name": "Bacon",
+        "quality": 1
+    },
+    {
+        "name": "Pickle",
+        "quality": 1
+    }
+]}
