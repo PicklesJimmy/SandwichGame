@@ -2,10 +2,13 @@ package model;
 
 import java.util.List;
 import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
 
 /*  Represents a sandwich having a list of ingredients inside the sandwich, 
  and the type of bread used for the sandwich. */ 
-public class Sandwich {
+public class Sandwich implements Writable {
     private List<Ingredients> ingredientsList;
 
     // EFFECTS: constructs an empty list of ingredients.
@@ -35,6 +38,25 @@ public class Sandwich {
             return true;
         }
     } 
+    
+    // EFFECTS: returns the Sandwich as JSON object
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("Ingredients", ingredToJson());
+        return json;
+    }
+
+    // EFFECTS: returns ingredients in this sandwich as a JSON array
+    private JSONArray ingredToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Ingredients i : ingredientsList) {
+            jsonArray.put(i.toJson());
+        }
+
+        return jsonArray;
+    }
 
 
 }
