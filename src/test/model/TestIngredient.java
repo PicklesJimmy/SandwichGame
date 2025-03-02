@@ -34,35 +34,35 @@ public class TestIngredient {
     void testConstructor() {
         assertNull(testNull1.getQuality());
         assertNull(testNull2.getQuality());
-        assertEquals(testB.getQuality(), "raw");
-        assertEquals(testP.getQuality(), "dill");
+        assertEquals(testB.getQuality(), "Raw");
+        assertEquals(testP.getQuality(), "Dill");
     }
 
     @Test
     void testBaconSetQuality() {
         testB.setQuality(1);
-        assertEquals(testB.getQuality(), "raw");
+        assertEquals(testB.getQuality(), "Raw");
         testB.setQuality(2);
-        assertEquals(testB.getQuality(), "cooked");
+        assertEquals(testB.getQuality(), "Cooked");
         testB.setQuality(1);
         testB.setQuality(1);
-        assertEquals(testB.getQuality(), "raw");
+        assertEquals(testB.getQuality(), "Raw");
         testB.setQuality(2);
         testB.setQuality(2);
-        assertEquals(testB.getQuality(), "cooked");
-        assertEquals(testB2.getQuality(), "cooked");
+        assertEquals(testB.getQuality(), "Cooked");
+        assertEquals(testB2.getQuality(), "Cooked");
     }
 
     @Test
     void testPickleSetQuality() {
         testP.setQuality(1);
-        assertEquals(testP.getQuality(), "dill");
+        assertEquals(testP.getQuality(), "Dill");
         testP.setQuality(2);
-        assertEquals(testP.getQuality(), "sweet");
+        assertEquals(testP.getQuality(), "Sweet");
         testP.setQuality(2);
         testP.setQuality(2);
-        assertEquals(testP.getQuality(), "sweet");
-        assertEquals(testP2.getQuality(), "sweet");
+        assertEquals(testP.getQuality(), "Sweet");
+        assertEquals(testP2.getQuality(), "Sweet");
 
 
     }
@@ -70,18 +70,26 @@ public class TestIngredient {
     @Test
     void testIngredientSetQuality() {
         testI.setQuality(1);
-        assertEquals(testI.getQuality(), "uncooked");
+        assertEquals(testI.getQuality(), "Uncooked");
         testI.setQuality(2);
-        assertEquals(testI.getQuality(), "cooked");
+        assertEquals(testI.getQuality(), "Cooked");
         testI.setQuality(1);
         testI.setQuality(1);
-        assertEquals(testI.getQuality(), "uncooked");
+        assertEquals(testI.getQuality(), "Uncooked");
         testI.setQuality(2);
         testI.setQuality(2);
-        assertEquals(testI.getQuality(), "cooked");
+        assertEquals(testI.getQuality(), "Cooked");
         testI.setQuality(3);
         assertNull(testI.getQuality());
-        assertEquals(testI2.getQuality(), "cooked");
+        assertEquals(testI2.getQuality(), "Cooked");
+
+    }
+
+    @Test
+    void testReturnName() {
+        assertEquals(testB.getName(), "Bacon");
+        assertEquals(testP.getName(), "Pickle");
+        assertEquals(testI.getName(), "Ingredient");
 
     }
 }
