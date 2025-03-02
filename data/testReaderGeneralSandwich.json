@@ -1,14 +1,14 @@
 {"Ingredients": [
     {
-        "name": "Pickle",
-        "quality": 1
-    },
-    {
         "name": "Bacon",
         "quality": 1
     },
     {
         "name": "Pickle",
         "quality": 2
+    },
+    {
+        "name": "Ingredient",
+        "quality": 1
     }
 ]}
