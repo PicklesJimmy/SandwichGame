@@ -10,12 +10,9 @@ import java.util.List;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.text.NumberFormat;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 
@@ -69,45 +66,92 @@ public class SandwichGameGui extends JFrame {
     // MODIFIES: this
     // EFFECTS: prints out the list of ingredients as images
     public JPanel imagePrinter() {
-       return null; // stub 
+        panel.removeAll();
+        for (String s: imageList) {
+            ImageIcon image = new ImageIcon(s);
+            Image scaleImage = image.getImage().getScaledInstance(WIDTH / 3, HEIGHT / 6, Image.SCALE_SMOOTH);
+            ImageIcon postScaleImage = new ImageIcon(scaleImage);
+            JLabel imageAsLabel = new JLabel(postScaleImage);
+            panel.add(imageAsLabel);
+            imageAsLabel.setVisible(true);
+        }
+        // add(panel,BorderLayout.CENTER);
+        panel.revalidate();
+        panel.repaint();
+        return panel;
     } 
 
     // EFFECTS: adds the bacon button 
     // Attribution: code structure based on the AlarmSystem lecture lab
     public JButton baconButtonAdd() {
-        return null; // stub
+        JButton baconButton = new JButton("Add a Bacon");
+        baconButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                addBacon();
+            }
+		});
+        return baconButton;
     }
 
     
     // EFFECTS: adds the pickle button 
     // Attribution: code structure based on the AlarmSystem lecture lab
     public JButton pickleButtonAdd() {
-        return null; //stub
+        JButton pickleButton = new JButton("Add a Pickle");
+        pickleButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                addPickle();
+            }
+		});
+        return pickleButton;
     }
-    
 
     // EFFECTS: adds the remove button 
     // Attribution: code structure based on the AlarmSystem lecture lab
     public JButton removeButtonAdd() {
-        return null; // stub
+        JButton removeButton = new JButton("Remove");
+        removeButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                removeIngredient();
+            }
+		});
+        return removeButton;
     }
 
     // EFFECTS: adds the load button 
     // Attribution: code structure based on the AlarmSystem lecture lab
     public JButton loadButtonAdd() {
-       return null; //stub
+        JButton loadButton = new JButton("Load Sandwich");
+        loadButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                loadSandwich();
+            }
+		});
+        return loadButton;
     }
     
     // EFFECTS: adds the save button 
     // Attribution: code structure based on the AlarmSystem lecture lab
     public JButton saveButtonAdd() {
-       return null; //stub
+        JButton saveButton = new JButton("Save sandwich");
+        saveButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                saveSandwich();
+		    }
+		});
+        return saveButton;
     }
 
     // EFFECTS: adds the exit game button 
     // Attribution: code structure based on the AlarmSystem lecture lab
     public JButton exitButtonAdd() {
-        return null; //stub
+        JButton endButton = new JButton("Exit the game");
+        endButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+		});
+        return endButton;
     }
 
 
@@ -116,7 +160,17 @@ public class SandwichGameGui extends JFrame {
     // EFFECTS: adds the buttons to the gui panel
     // Attribution: code structure based on the AlarmSystem Lab
     public JPanel addButtonPanel() {
-       return null; //stub
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new GridLayout(2,3));
+        buttonPanel.add(baconButtonAdd());
+        buttonPanel.add(pickleButtonAdd());
+        buttonPanel.add(removeButtonAdd());
+        buttonPanel.add(saveButtonAdd());
+        buttonPanel.add(loadButtonAdd());
+        buttonPanel.add(exitButtonAdd());
+
+        return buttonPanel;
+
 		
     }
    
@@ -130,6 +184,8 @@ public class SandwichGameGui extends JFrame {
                     Bacon bacon = new Bacon(baconProperty);
                     this.sandwich.addIngredient(bacon);
                     ingredList.add("Raw Bacon");
+            // JLabel jlabel = new JLabel("hello");
+            // panel.add(jlabel);
                     imageList.add("image\\RawBacon.png");
                     imagePrinter();
                     JOptionPane.showMessageDialog(this, "A raw bacon is added to the sandwich!");
@@ -230,13 +286,28 @@ public class SandwichGameGui extends JFrame {
     // EFFECTS: turns the sandwich into images
     // Attributions: replaceAll is from https://stackoverflow.com/questions/5455794/removing-whitespace-from-strings-in-java
     private void updateIngredientList() {
-        // stub
+        panel.removeAll();
+        for (String ingredient : ingredList) {
+            String img = "image\\" + ingredient.replaceAll(" ","") + ".png";
+            imageList.add(img);
+            ImageIcon image = new ImageIcon(img);
+            Image scaleImage = image.getImage().getScaledInstance(WIDTH / 3, HEIGHT / 6, Image.SCALE_SMOOTH);
+            ImageIcon postScaleImage = new ImageIcon(scaleImage);
+            JLabel label = new JLabel(postScaleImage);
+            label.setBounds(WIDTH / 3, HEIGHT/2 - (ingredList.size() * (HEIGHT / 30)), WIDTH / 3, HEIGHT / 6);
+            label.setVisible(true);
+            panel.add(label);
+        }
+        panel.revalidate();
+        panel.repaint();
     }
         
     // EFFECTS: centers the gui panel on the screen
     // Attributions: code structure based on the AlarmSystem LectureLab
     public void centreOnScreen() {
-       // stub
+        int width = Toolkit.getDefaultToolkit().getScreenSize().width;
+        int height = Toolkit.getDefaultToolkit().getScreenSize().height;
+        setLocation((width - getWidth()) / 2, (height - getHeight()) / 2);
     }
 }
 
