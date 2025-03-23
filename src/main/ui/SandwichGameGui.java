@@ -44,6 +44,7 @@ public class SandwichGameGui extends JFrame {
     // MODIFIES: this
     // EFFECTS: initializes the game with the starting values
     // Attribution: code structure based on the Flashcards lab and the AlarmSystem Lecture Lab. 
+    // GridbagLayout is learned from https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html
     public void inital() {
         sandwich = new Sandwich();
         ingredList = new ArrayList<>();
@@ -73,6 +74,7 @@ public class SandwichGameGui extends JFrame {
 
     // MODIFIES: breadPanel
     // EFFECTS: adds another panel to the gui for the top bread
+    // Attributions: the image resizing is learned from https://stackoverflow.com/questions/5895829/resizing-image-in-java
     public void breadAdder() {
         ImageIcon topBread = new ImageIcon("image/TopBread.png");
         Image scaleTopBread = topBread.getImage().getScaledInstance(WIDTH / 4, HEIGHT / 8, Image.SCALE_SMOOTH);
@@ -84,6 +86,7 @@ public class SandwichGameGui extends JFrame {
     // MODIFIES: panel
     // EFFECTS: adds a bottom bun to the sandwich
     // Attributions: GridbagLayout is learned from https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html
+    // the image resizing is learned from https://stackoverflow.com/questions/5895829/resizing-image-in-java
     public void bottomBreadAdder() {
         panel.removeAll();
         GridBagConstraints c = new GridBagConstraints();
@@ -100,6 +103,7 @@ public class SandwichGameGui extends JFrame {
     // MODIFIES: panel
     // EFFECTS: prints out the list of ingredients as images
     // Attributions: GridbagLayout is learned from https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html
+    // the image resizing is learned from https://stackoverflow.com/questions/5895829/resizing-image-in-java
     public JPanel imagePrinter() {
         panel.removeAll();
         bottomBreadAdder();
@@ -344,6 +348,7 @@ public class SandwichGameGui extends JFrame {
     // EFFECTS: turns the sandwich into images
     // Attributions: replaceAll is from https://stackoverflow.com/questions/5455794/removing-whitespace-from-strings-in-java
     // GridbagLayout is learned from https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html
+    // the image resizing is learned from https://stackoverflow.com/questions/5895829/resizing-image-in-java
     private void updateIngredientList() {
         panel.removeAll();
         bottomBreadAdder();
