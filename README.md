@@ -25,3 +25,14 @@ I chose to make a sandwich simulator game for my project since I have always enj
 - As a user, I want to be able to save my current sandwich to file (if I so choose).  
 - As a user, I want to be able to load my current sandwich from file (if I so choose).  
 
+
+# Instructions for End User
+
+- You can generate the first required action (Removing Ingredients) related to the user story "adding multiple Xs to a Y" by clicking the Remove button.  
+- You can generate the second required action (checking the quality for the ingredients) related to the user story "adding multiple Xs to a Y" by clicking the view ingredients button.  
+- You can add ingredients to a sandwich by pressing either the add bacon or add pickle buttons.  
+- You can select the properties for different ingredients by clicking the add bacon/add pickle buttons and inputting a number that correspond to the property.  
+- You can view all the ingredients in the sandwich by the display in the panel.  
+- You can locate my visual component by the display in the panel after you added or loaded the ingredients in the sandwich.  
+- You can save the state of my application by pressing the save sandwich button.  
+- You can reload the state of my application by pressing the load sandwich button.  
