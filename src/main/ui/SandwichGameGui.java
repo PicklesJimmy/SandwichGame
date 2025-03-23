@@ -74,7 +74,11 @@ public class SandwichGameGui extends JFrame {
     // MODIFIES: breadPanel
     // EFFECTS: adds another panel to the gui for the top bread
     public void breadAdder() {
-        // stub
+        ImageIcon topBread = new ImageIcon("image/TopBread.png");
+        Image scaleTopBread = topBread.getImage().getScaledInstance(WIDTH / 4, HEIGHT / 8, Image.SCALE_SMOOTH);
+        JLabel topBreadLabel = new JLabel(new ImageIcon(scaleTopBread));
+        breadPanel.add(topBreadLabel);
+        breadPanel.setBackground(Color.yellow);
     }
     
     // MODIFIES: panel
