@@ -71,7 +71,15 @@ public class SandwichGameGui extends JFrame {
     // MODIFIES: panel
     // EFFECTS: adds a bottom bun to the sandwich
     public void bottomBreadAdder() {
-        // stub
+        panel.removeAll();
+        GridBagConstraints c = new GridBagConstraints();
+        c.gridx = 0;
+        c.anchor = GridBagConstraints.CENTER;
+        ImageIcon bottomBread = new ImageIcon("image/BreadBottom.png");
+        Image scaleBottomBread = bottomBread.getImage().getScaledInstance(WIDTH / 4, HEIGHT / 8, Image.SCALE_SMOOTH);
+        JLabel bottomBreadLabel = new JLabel(new ImageIcon(scaleBottomBread));
+        c.gridy = imageList.size() + 100000; 
+        panel.add(bottomBreadLabel, c);
     }
 
 
@@ -187,8 +195,6 @@ public class SandwichGameGui extends JFrame {
         buttonPanel.add(exitButtonAdd());
 
         return buttonPanel;
-
-		
     }
    
     // MODIFIES: this
@@ -197,25 +203,23 @@ public class SandwichGameGui extends JFrame {
         try {
             String input = JOptionPane.showInputDialog("Should this bacon be raw(enter 1), or cooked(enter 2):");
             int baconProperty = Integer.parseInt(input);
-                if (baconProperty == 1) {
-                    Bacon bacon = new Bacon(baconProperty);
-                    this.sandwich.addIngredient(bacon);
-                    ingredList.add("Raw Bacon");
-            // JLabel jlabel = new JLabel("hello");
-            // panel.add(jlabel);
-                    imageList.add("image\\RawBacon.png");
-                    imagePrinter();
-                    JOptionPane.showMessageDialog(this, "A raw bacon is added to the sandwich!");
-                } else if (baconProperty == 2) {
-                    Bacon bacon = new Bacon(baconProperty);            
-                    this.sandwich.addIngredient(bacon);
-                    ingredList.add("Cooked Bacon");
-                    imageList.add("image\\CookedBacon.png");
-                    imagePrinter();
-                    JOptionPane.showMessageDialog(this, "A cooked bacon is added to the sandwich!");
-                } else {
-                    JOptionPane.showMessageDialog(this,"This is not a valid input, try again.");
-                }
+            if (baconProperty == 1) {
+                Bacon bacon = new Bacon(baconProperty);
+                this.sandwich.addIngredient(bacon);
+                ingredList.add("Raw Bacon");
+                imageList.add("image\\RawBacon.png");
+                imagePrinter();
+                JOptionPane.showMessageDialog(this, "A raw bacon is added to the sandwich!");
+            } else if (baconProperty == 2) {
+                Bacon bacon = new Bacon(baconProperty);            
+                this.sandwich.addIngredient(bacon);
+                ingredList.add("Cooked Bacon");
+                imageList.add("image\\CookedBacon.png");
+                imagePrinter();
+                JOptionPane.showMessageDialog(this, "A cooked bacon is added to the sandwich!");
+            } else {
+                JOptionPane.showMessageDialog(this,"This is not a valid input, try again.");
+            }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "No Bacon is added");
         }
@@ -225,29 +229,29 @@ public class SandwichGameGui extends JFrame {
     // EFFECTS: adds a new pickle to the sandwich
     public void addPickle() {
         try {
-        String input = JOptionPane.showInputDialog("Should this pickle be dill(enter 1), or sweet(enter 2):");
-        int pickleProperty = Integer.parseInt(input);        
-        if (pickleProperty == 1) {
-            Pickle pickle = new Pickle(pickleProperty);
-            this.sandwich.addIngredient(pickle);
-            ingredList.add("Dill Pickle");
-            imageList.add("image\\DillPickle.png");
-            imagePrinter();
-            JOptionPane.showMessageDialog(this, "A dill pickle is added to the sandwich!");
-        } else if (pickleProperty == 2) {
-            Pickle pickle = new Pickle(pickleProperty);            
-            this.sandwich.addIngredient(pickle);
-            ingredList.add("Sweet Pickle");
-            imageList.add("image\\SweetPickle.png");
-            imagePrinter();
-            JOptionPane.showMessageDialog(this, "A sweet pickle is added to the sandwich!");
-        } else {
-            JOptionPane.showMessageDialog(this, pickleProperty + " is not a valid input, try again.");
-        }
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "No Pickle is added");
+            String input = JOptionPane.showInputDialog("Should this pickle be dill(enter 1), or sweet(enter 2):");
+            int pickleProperty = Integer.parseInt(input);        
+            if (pickleProperty == 1) {
+                Pickle pickle = new Pickle(pickleProperty);
+                this.sandwich.addIngredient(pickle);
+                ingredList.add("Dill Pickle");
+                imageList.add("image\\DillPickle.png");
+                imagePrinter();
+                JOptionPane.showMessageDialog(this, "A dill pickle is added to the sandwich!");
+            } else if (pickleProperty == 2) {
+                Pickle pickle = new Pickle(pickleProperty);            
+                this.sandwich.addIngredient(pickle);
+                ingredList.add("Sweet Pickle");
+                imageList.add("image\\SweetPickle.png");
+                imagePrinter();
+                JOptionPane.showMessageDialog(this, "A sweet pickle is added to the sandwich!");
+            } else {
+                JOptionPane.showMessageDialog(this, pickleProperty + " is not a valid input, try again.");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "No Pickle is added");
 
-    }
+        }
     }
      
     // MODIFIES: this
