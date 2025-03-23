@@ -18,7 +18,7 @@ import java.awt.*;
 
 
 
-// A sandwich game that allows the player to make and serve sandwiches to customers
+// A sandwich game that allows the player to make sandwiches
 public class SandwichGameGui extends JFrame {
     private static final int WIDTH = 600;
     private static final int HEIGHT = 400;
@@ -43,7 +43,7 @@ public class SandwichGameGui extends JFrame {
 
     // MODIFIES: this
     // EFFECTS: initializes the game with the starting values
-    // Attribution: code structure based on the Flashcards lab and the AlarmSystem Lecture Lab
+    // Attribution: code structure based on the Flashcards lab and the AlarmSystem Lecture Lab. 
     public void inital() {
         sandwich = new Sandwich();
         ingredList = new ArrayList<>();
@@ -83,6 +83,7 @@ public class SandwichGameGui extends JFrame {
     
     // MODIFIES: panel
     // EFFECTS: adds a bottom bun to the sandwich
+    // Attributions: GridbagLayout is learned from https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html
     public void bottomBreadAdder() {
         panel.removeAll();
         GridBagConstraints c = new GridBagConstraints();
@@ -98,6 +99,7 @@ public class SandwichGameGui extends JFrame {
 
     // MODIFIES: panel
     // EFFECTS: prints out the list of ingredients as images
+    // Attributions: GridbagLayout is learned from https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html
     public JPanel imagePrinter() {
         panel.removeAll();
         bottomBreadAdder();
@@ -341,6 +343,7 @@ public class SandwichGameGui extends JFrame {
 
     // EFFECTS: turns the sandwich into images
     // Attributions: replaceAll is from https://stackoverflow.com/questions/5455794/removing-whitespace-from-strings-in-java
+    // GridbagLayout is learned from https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html
     private void updateIngredientList() {
         panel.removeAll();
         bottomBreadAdder();
