@@ -50,11 +50,16 @@ public class SandwichGameGui extends JFrame {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
         setTitle("CPSC 210: Sandwich Maker Game");
-        panel = new JPanel();
 
+        panel = new JPanel();
+        panel.setLayout(new GridBagLayout());
         panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        add(new JScrollPane(panel), BorderLayout.CENTER);
+
+        
+
+        add(new JScrollPane(panel));
         add(addButtonPanel(), BorderLayout.SOUTH);
+        bottomBreadAdder();
         setSize(WIDTH, HEIGHT);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -62,20 +67,32 @@ public class SandwichGameGui extends JFrame {
         setVisible(true);
 
     }
+    
+    // MODIFIES: panel
+    // EFFECTS: adds a bottom bun to the sandwich
+    public void bottomBreadAdder() {
+        // stub
+    }
+
 
     // MODIFIES: this
     // EFFECTS: prints out the list of ingredients as images
     public JPanel imagePrinter() {
         panel.removeAll();
-        for (String s: imageList) {
-            ImageIcon image = new ImageIcon(s);
-            Image scaleImage = image.getImage().getScaledInstance(WIDTH / 3, HEIGHT / 6, Image.SCALE_SMOOTH);
+        bottomBreadAdder();
+        GridBagConstraints c = new GridBagConstraints();
+        c.gridx = 0;
+        c.anchor = GridBagConstraints.CENTER;
+
+        for (int i = 0; i < imageList.size(); i++) {
+            ImageIcon image = new ImageIcon(imageList.get(i));
+            Image scaleImage = image.getImage().getScaledInstance(WIDTH / 6, HEIGHT / 12, Image.SCALE_SMOOTH);
             ImageIcon postScaleImage = new ImageIcon(scaleImage);
             JLabel imageAsLabel = new JLabel(postScaleImage);
-            panel.add(imageAsLabel);
             imageAsLabel.setVisible(true);
+            c.gridy = imageList.size() - 1 - i; 
+            panel.add(imageAsLabel, c);
         }
-        // add(panel,BorderLayout.CENTER);
         panel.revalidate();
         panel.repaint();
         return panel;
@@ -269,12 +286,12 @@ public class SandwichGameGui extends JFrame {
     private void loadSandwich() {
         ingredList.clear();
         imageList.clear();
-        panel.removeAll();
         try {
             sandwich = jsonReader.read();
             for (Ingredients i : sandwich.viewIngredients()) {
                 String ing = i.getQuality() + " " + i.getName();
                 ingredList.add(ing);
+                //updateIngredientList();
             }
             updateIngredientList();
             JOptionPane.showMessageDialog(this, "Loaded sandwich from " + JSON_STORE);
@@ -287,20 +304,25 @@ public class SandwichGameGui extends JFrame {
     // Attributions: replaceAll is from https://stackoverflow.com/questions/5455794/removing-whitespace-from-strings-in-java
     private void updateIngredientList() {
         panel.removeAll();
-        for (String ingredient : ingredList) {
-            String img = "image\\" + ingredient.replaceAll(" ","") + ".png";
+        bottomBreadAdder();
+        GridBagConstraints c = new GridBagConstraints();
+        c.gridx = 0;
+        c.anchor = GridBagConstraints.CENTER;
+        for (int i = 0; i < ingredList.size(); i++) {
+            String img = "image\\" + ingredList.get(i).replaceAll(" ","") + ".png";
             imageList.add(img);
             ImageIcon image = new ImageIcon(img);
-            Image scaleImage = image.getImage().getScaledInstance(WIDTH / 3, HEIGHT / 6, Image.SCALE_SMOOTH);
+            Image scaleImage = image.getImage().getScaledInstance(WIDTH / 6, HEIGHT / 12, Image.SCALE_SMOOTH);
             ImageIcon postScaleImage = new ImageIcon(scaleImage);
             JLabel label = new JLabel(postScaleImage);
-            label.setBounds(WIDTH / 3, HEIGHT/2 - (ingredList.size() * (HEIGHT / 30)), WIDTH / 3, HEIGHT / 6);
             label.setVisible(true);
-            panel.add(label);
+            c.gridy = ingredList.size() - 1 - i; 
+            panel.add(label, c);
         }
         panel.revalidate();
         panel.repaint();
     }
+
         
     // EFFECTS: centers the gui panel on the screen
     // Attributions: code structure based on the AlarmSystem LectureLab
