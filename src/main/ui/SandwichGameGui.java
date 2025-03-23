@@ -30,6 +30,7 @@ public class SandwichGameGui extends JFrame {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
     private JPanel panel;
+    private JPanel breadPanel;
     private static final String JSON_STORE = "./data/Sandwich.json";
 
 
@@ -51,14 +52,22 @@ public class SandwichGameGui extends JFrame {
         jsonReader = new JsonReader(JSON_STORE);
         setTitle("CPSC 210: Sandwich Maker Game");
 
+        breadPanel = new JPanel();
+        ImageIcon topBread = new ImageIcon("image/TopBread.png");
+        Image scaleTopBread = topBread.getImage().getScaledInstance(WIDTH / 4, HEIGHT / 8, Image.SCALE_SMOOTH);
+        JLabel topBreadLabel = new JLabel(new ImageIcon(scaleTopBread));
+        breadPanel.add(topBreadLabel);
+        breadPanel.setBackground(Color.yellow);
+
         panel = new JPanel();
         panel.setLayout(new GridBagLayout());
         panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
-
+        panel.setBackground(Color.orange);
         
-
+        add(breadPanel, BorderLayout.NORTH);
         add(new JScrollPane(panel));
         add(addButtonPanel(), BorderLayout.SOUTH);
+        //topBreadAdder();
         bottomBreadAdder();
         setSize(WIDTH, HEIGHT);
         setLocationRelativeTo(null);
@@ -83,7 +92,7 @@ public class SandwichGameGui extends JFrame {
     }
 
 
-    // MODIFIES: this
+    // MODIFIES: panel
     // EFFECTS: prints out the list of ingredients as images
     public JPanel imagePrinter() {
         panel.removeAll();
@@ -179,22 +188,35 @@ public class SandwichGameGui extends JFrame {
         return endButton;
     }
 
+    // EFFECTS: adds the exit game button 
+    // Attribution: code structure based on the AlarmSystem lecture lab
+    public JButton showAllButtonAdd() {
+        return null; //stub
+    }
 
-    
 
+    // MODIFIES: buttonPanel
     // EFFECTS: adds the buttons to the gui panel
     // Attribution: code structure based on the AlarmSystem Lab
     public JPanel addButtonPanel() {
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(2,3));
+        buttonPanel.setLayout(new GridLayout(2,4));
         buttonPanel.add(baconButtonAdd());
         buttonPanel.add(pickleButtonAdd());
+        buttonPanel.add(showAllButtonAdd());
         buttonPanel.add(removeButtonAdd());
         buttonPanel.add(saveButtonAdd());
         buttonPanel.add(loadButtonAdd());
         buttonPanel.add(exitButtonAdd());
+        buttonPanel.setBackground(Color.MAGENTA);
 
         return buttonPanel;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: displays all the ingredients inside the sandwich
+    public void viewSandwich() {
+        // stub
     }
    
     // MODIFIES: this
