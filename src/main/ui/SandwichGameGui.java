@@ -53,11 +53,7 @@ public class SandwichGameGui extends JFrame {
         setTitle("CPSC 210: Sandwich Maker Game");
 
         breadPanel = new JPanel();
-        ImageIcon topBread = new ImageIcon("image/TopBread.png");
-        Image scaleTopBread = topBread.getImage().getScaledInstance(WIDTH / 4, HEIGHT / 8, Image.SCALE_SMOOTH);
-        JLabel topBreadLabel = new JLabel(new ImageIcon(scaleTopBread));
-        breadPanel.add(topBreadLabel);
-        breadPanel.setBackground(Color.yellow);
+        breadAdder();
 
         panel = new JPanel();
         panel.setLayout(new GridBagLayout());
@@ -67,14 +63,18 @@ public class SandwichGameGui extends JFrame {
         add(breadPanel, BorderLayout.NORTH);
         add(new JScrollPane(panel));
         add(addButtonPanel(), BorderLayout.SOUTH);
-        //topBreadAdder();
         bottomBreadAdder();
         setSize(WIDTH, HEIGHT);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         centreOnScreen();    
         setVisible(true);
+    }
 
+    // MODIFIES: breadPanel
+    // EFFECTS: adds another panel to the gui for the top bread
+    public void breadAdder() {
+        // stub
     }
     
     // MODIFIES: panel
@@ -191,7 +191,13 @@ public class SandwichGameGui extends JFrame {
     // EFFECTS: adds the exit game button 
     // Attribution: code structure based on the AlarmSystem lecture lab
     public JButton showAllButtonAdd() {
-        return null; //stub
+        JButton endButton = new JButton("View Ingredients");
+        endButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                viewSandwich();
+            }
+		});
+        return endButton;
     }
 
 
@@ -208,7 +214,6 @@ public class SandwichGameGui extends JFrame {
         buttonPanel.add(saveButtonAdd());
         buttonPanel.add(loadButtonAdd());
         buttonPanel.add(exitButtonAdd());
-        buttonPanel.setBackground(Color.MAGENTA);
 
         return buttonPanel;
     }
@@ -216,7 +221,11 @@ public class SandwichGameGui extends JFrame {
     // MODIFIES: this
     // EFFECTS: displays all the ingredients inside the sandwich
     public void viewSandwich() {
-        // stub
+        if (sandwich.viewIngredients().isEmpty() && ingredList.isEmpty()) {
+            JOptionPane.showMessageDialog(this,"The sandwich is empty:( !");
+        } else {
+            JOptionPane.showMessageDialog(this,"Here are the ingredients currently in the sandwich: \na" + ingredList);
+        }
     }
    
     // MODIFIES: this
