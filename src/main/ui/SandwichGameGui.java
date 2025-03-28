@@ -339,7 +339,6 @@ public class SandwichGameGui extends JFrame {
         imageList.clear();
         try {
             sandwich = jsonReader.read();
-            // for (Ingredients i : sandwich.viewIngredients()) {
             for (Ingredients i : sandwich.viewIngredients()) {
                 String ing = i.getQuality() + " " + i.getName();
                 ingredList.add(ing);
