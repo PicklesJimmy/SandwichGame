@@ -28,6 +28,7 @@ public class Sandwich implements Writable {
         return ingredientsList;
     }
 
+    // MODIFIES: ingList
     // EFFECTS: return the list of ingredients, and their ingredients
     public List<String> viewIngredQuality() {
         EventLog.getInstance().logEvent(new Event("Ingredient List Viewed."));
