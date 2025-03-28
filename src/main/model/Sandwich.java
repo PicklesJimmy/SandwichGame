@@ -29,8 +29,8 @@ public class Sandwich implements Writable {
     }
 
     // EFFECTS: return the list of ingredients, and their ingredients
-    public List<String> viewIngredientsAndQuality() {
-        return null; // stub
+    public List<String> viewIngredQuality() {
+        return null; //stub
     }
 
     // MODIFIES: this
