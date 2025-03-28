@@ -20,6 +20,7 @@ public class Sandwich implements Writable {
     // EFFECTS: add the ingredient to the list of ingredients
     public void addIngredient(Ingredients ingredient) {
         ingredientsList.add(ingredient);
+        // EventLog.getInstance().logEvent(new Event("Sandwich Ingredient Added."));
     }
 
     // EFFECTS: return the list of ingredients,
@@ -27,14 +28,21 @@ public class Sandwich implements Writable {
         return ingredientsList;
     }
 
+    // EFFECTS: return the list of ingredients, and their ingredients
+    public List<String> viewIngredientsAndQuality() {
+        return null; // stub
+    }
+
     // MODIFIES: this
     // EFFECTS: remove the last ingredient added from the sandwich and return true, return false if list is empty
     public boolean removeIngredients() {
         if (ingredientsList.isEmpty()) {
+            // EventLog.getInstance().logEvent(new Event("Ingredient Remove Failed."));
             return false;
         } else {
             int last = ingredientsList.size() - 1;
             ingredientsList.remove(last);
+            EventLog.getInstance().logEvent(new Event("Ingredient Removed."));
             return true;
         }
     } 
