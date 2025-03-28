@@ -56,9 +56,15 @@ public class TestSandwich {
         assertEquals(testSand.viewIngredients().get(2), testP);
         assertEquals(testSand.viewIngredients().size(), 3);
 
+    }
 
-
-
+    @Test
+    void testViewIngredientsAndQuality() {
+        testSand.addIngredient(testB);
+        testSand.addIngredient(testP);
+        assertEquals(testSand.viewIngredQuality().size(), 2);
+        assertEquals(testSand.viewIngredQuality().get(0), "Raw Bacon");
+        assertEquals(testSand.viewIngredQuality().get(1), "Dill Pickle");
 
     }
 
