@@ -13,7 +13,6 @@ public class Ingredients implements Writable {
     // MODIFIES: this
     // EFFECTS: constructs an Ingredients object with a given quality between 1(raw) and 2(cooked) and a name.
     public Ingredients(int input) {
-        setQuality(input);
         this.input = input;
         this.name = "Ingredient";
 
@@ -24,10 +23,13 @@ public class Ingredients implements Writable {
     // depending on the value the player entered. Else, the quality is set to null.
     protected void setQuality(int val) {
         if (val == 1) {
+            EventLog.getInstance().logEvent(new Event("Uncooked Ingredient Quality Event Logged."));
             quality = "Uncooked";
         } else if (val == 2) {
+            EventLog.getInstance().logEvent(new Event("Cooked Ingredient Quality Event Logged."));
             quality = "Cooked";
         } else {
+            EventLog.getInstance().logEvent(new Event("False Quality Input Event Logged."));
             quality = null;
         }
     }

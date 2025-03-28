@@ -23,10 +23,13 @@ public class Pickle extends Ingredients {
     protected void setQuality(int val) {
         if (val == 1) {
             quality = "Dill";
+            EventLog.getInstance().logEvent(new Event("Dill Pickle Added."));
         } else if (val == 2) {
             quality = "Sweet";
+            EventLog.getInstance().logEvent(new Event("Sweet Pickle Added."));
         } else {
             quality = null;
+            EventLog.getInstance().logEvent(new Event("No Pickle Added."));
         }
     }
 

@@ -23,10 +23,13 @@ public class Bacon extends Ingredients {
     protected void setQuality(int val) {
         if (val == 1) {
             quality = "Raw";
+            EventLog.getInstance().logEvent(new Event("Raw Bacon Added."));
         } else if (val == 2) {
             quality = "Cooked";
+            EventLog.getInstance().logEvent(new Event("Cooked Bacon Added."));
         } else {
             quality = null;
+            EventLog.getInstance().logEvent(new Event("No Bacon Added."));
         }
     }    
 
