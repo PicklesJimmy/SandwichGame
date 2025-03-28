@@ -36,3 +36,17 @@ I chose to make a sandwich simulator game for my project since I have always enj
 - You can locate my visual component by the display in the panel after you added or loaded the ingredients in the sandwich.  
 - You can save the state of my application by pressing the save sandwich button.  
 - You can reload the state of my application by pressing the load sandwich button.  
+
+## Phase 4: Task 2  
+- Welcome to my sandwich simulator game project!  
+- Fri Mar 28 14:21:55 PDT 2025  
+- Dill Pickle Added.  
+- Fri Mar 28 14:21:58 PDT 2025  
+- Cooked Bacon Added.  
+- Fri Mar 28 14:22:03 PDT 2025  
+- Cooked Bacon Added.  
+- Fri Mar 28 14:22:05 PDT 2025  
+- Ingredient List Viewed.  
+- Fri Mar 28 14:22:09 PDT 2025  
+- Ingredient Removed.  
+
