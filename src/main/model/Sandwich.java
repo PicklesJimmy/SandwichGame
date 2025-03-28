@@ -30,7 +30,12 @@ public class Sandwich implements Writable {
 
     // EFFECTS: return the list of ingredients, and their ingredients
     public List<String> viewIngredQuality() {
-        return null; //stub
+        EventLog.getInstance().logEvent(new Event("Ingredient List Viewed."));
+        List<String> ingList = new ArrayList<>();
+        for (Ingredients i : ingredientsList) {
+            ingList.add(i.getQuality() + " " + i.getName());
+        }
+        return ingList;
     }
 
     // MODIFIES: this
