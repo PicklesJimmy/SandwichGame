@@ -4,6 +4,8 @@ import model.Bacon;
 import model.Ingredients;
 import model.Pickle;
 import model.Sandwich;
+import model.EventLog;
+import model.Event;
 import persistence.*;
 
 import java.util.List;
@@ -192,6 +194,10 @@ public class SandwichGameGui extends JFrame {
         JButton endButton = new JButton("Exit the game");
         endButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                EventLog event = EventLog.getInstance();
+                for (Event ev : event) {
+                    System.out.println(ev.toString());
+                }
                 System.exit(0);
             }
 		});
@@ -234,7 +240,7 @@ public class SandwichGameGui extends JFrame {
         if (sandwich.viewIngredients().isEmpty() && ingredList.isEmpty()) {
             JOptionPane.showMessageDialog(this,"The sandwich is empty:( !");
         } else {
-            JOptionPane.showMessageDialog(this,"Here are the ingredients currently in the sandwich: \na" + ingredList);
+            JOptionPane.showMessageDialog(this, "Current ingredients in sandwich:\n" + sandwich.viewIngredQuality());
         }
     }
    
@@ -298,7 +304,7 @@ public class SandwichGameGui extends JFrame {
     // MODIFIES: this
     // EFFECTS: remove the last ingredient added from the sandwich, print a message if there is no ingredients
     public void removeIngredient() {
-        if (sandwich.viewIngredients().isEmpty()) {
+        if (ingredList.isEmpty()) {
             JOptionPane.showMessageDialog(this, "This sandwich is empty! No ingredient to remove!");
         } else {
             int last = ingredList.size() - 1;
@@ -333,6 +339,7 @@ public class SandwichGameGui extends JFrame {
         imageList.clear();
         try {
             sandwich = jsonReader.read();
+            // for (Ingredients i : sandwich.viewIngredients()) {
             for (Ingredients i : sandwich.viewIngredients()) {
                 String ing = i.getQuality() + " " + i.getName();
                 ingredList.add(ing);
