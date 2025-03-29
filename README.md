@@ -50,3 +50,9 @@ I chose to make a sandwich simulator game for my project since I have always enj
 - Fri Mar 28 14:22:09 PDT 2025  
 - Ingredient Removed.  
 
+## Phase 4: Task 3  
+
+After working through my UML class diagram for this project, I came to realize that if I had more time to work on the project, I could have done a lot more refactoring to a lot of my classes, in order to prove the design of my project. For example, one refactoring that I might use to improve enforce the Single Responsibility Principle for some of my classes, such as my SandwichGame and SandwichGameGui class. In the original console ui class for SandwichGame, I felt like the class was mostly organized; however, in the SandwichGameGui class, I came to realize that I am putting a lot of different responsibilities into that class after completing my UML diagram and reflecting upon the design of my program. For instance, I definitely could have made another class that handled all of the functionalities of the sandwich game, such as adding ingredients. While kept the SandwichGameGui class to focusing on only making the GUI aspect, namely the JPanels and the buttons, instead of handling both aspects of the game and the graphics. I felt that this refactoring would be a strict improvement to the design of my code as it will increase the cohesion of my project.  
+
+
+
