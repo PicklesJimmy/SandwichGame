@@ -254,14 +254,14 @@ public class SandwichGameGui extends JFrame {
                 Bacon bacon = new Bacon(baconProperty);
                 this.sandwich.addIngredient(bacon);
                 ingredList.add("Raw Bacon");
-                imageList.add("image\\RawBacon.png");
+                imageList.add("image/RawBacon.png");
                 imagePrinter();
                 JOptionPane.showMessageDialog(this, "A raw bacon is added to the sandwich!");
             } else if (baconProperty == 2) {
                 Bacon bacon = new Bacon(baconProperty);            
                 this.sandwich.addIngredient(bacon);
                 ingredList.add("Cooked Bacon");
-                imageList.add("image\\CookedBacon.png");
+                imageList.add("image/CookedBacon.png");
                 imagePrinter();
                 JOptionPane.showMessageDialog(this, "A cooked bacon is added to the sandwich!");
             } else {
@@ -282,14 +282,14 @@ public class SandwichGameGui extends JFrame {
                 Pickle pickle = new Pickle(pickleProperty);
                 this.sandwich.addIngredient(pickle);
                 ingredList.add("Dill Pickle");
-                imageList.add("image\\DillPickle.png");
+                imageList.add("image/DillPickle.png");
                 imagePrinter();
                 JOptionPane.showMessageDialog(this, "A dill pickle is added to the sandwich!");
             } else if (pickleProperty == 2) {
                 Pickle pickle = new Pickle(pickleProperty);            
                 this.sandwich.addIngredient(pickle);
                 ingredList.add("Sweet Pickle");
-                imageList.add("image\\SweetPickle.png");
+                imageList.add("image/SweetPickle.png");
                 imagePrinter();
                 JOptionPane.showMessageDialog(this, "A sweet pickle is added to the sandwich!");
             } else {
@@ -362,7 +362,7 @@ public class SandwichGameGui extends JFrame {
         c.gridx = 0;
         c.anchor = GridBagConstraints.CENTER;
         for (int i = 0; i < ingredList.size(); i++) {
-            String img = "image\\" + ingredList.get(i).replaceAll(" ","") + ".png";
+            String img = "image/" + ingredList.get(i).replaceAll(" ","") + ".png";
             imageList.add(img);
             ImageIcon image = new ImageIcon(img);
             Image scaleImage = image.getImage().getScaledInstance(WIDTH / 6, HEIGHT / 12, Image.SCALE_SMOOTH);
